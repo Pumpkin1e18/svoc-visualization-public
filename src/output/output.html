@@ -1,0 +1,327 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Brat Embedding (minimal example)</title>
+        <link rel="stylesheet" type="text/css" href="css/style-vis.css">
+        <script type="text/javascript" src="js/head.js"></script>
+    </head>
+
+    <body>
+
+    <!-- load all the libraries upfront, which takes forever. -->
+    <script type="text/javascript" src="js/brat_loader.js"></script>
+    
+    <script type="text/javascript">
+    var collData1 = {
+        entity_types: [ 
+            {
+                type: 'Subject',
+                labels : ['S'],
+                bgColor: '#a4bced',
+                borderColor: 'darken'
+            }, {
+                type: 'Verb',
+                labels: ['V'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'Object',
+                labels: ['O'],
+                bgColor: '#ffa22b',
+                borderColor: 'darken'
+            }, {
+                type: 'Complement',
+                labels: ['C'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }, {
+                type: 'Modifier',
+                labels: ['M'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'be',
+                labels: ['be動詞'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }, {
+                type: 'auxiliary',
+                labels: ['助動詞'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }
+        ]
+    };
+    collData1['relation_types'] = [{
+        type: 'Anaphora',
+        labels: ['修飾'],
+        // dashArray allows you to adjust the style of the relation arc
+        dashArray: '50,3',
+        color: 'purple',
+    }];
+    </script>
+    
+    <script type="text/javascript">
+    var docData1 = {
+        text     : "I like apples.",
+        entities : [
+            ['2', 'Verb', [[ 2, 6 ]]],
+            ['1', 'Subject', [[ 0, 1 ]]],
+            ['3', 'Object', [[ 7, 13 ]]],
+        ],
+    };
+    docData1['relations'] = [
+    ]
+    </script>
+    
+    <!-- configuration of annotation -->
+    <script type="text/javascript">
+        var collData4 = {
+            entity_types: [
+            {
+                type: 'JJ',
+                labels: ['形容詞'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'JJR',
+                labels: ['形容詞(比較級)'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'JJS',
+                labels: ['形容詞(最上級)'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'RB',
+                labels: ['副詞'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'RBR',
+                labels: ['副詞(比較級)'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'RBS',
+                labels: ['副詞(最上級)'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'WRB',
+                labels: ['Wh-副詞'],
+                bgColor: '#fffda8',
+                borderColor: 'darken'
+            }, {
+                type: 'DT',
+                labels: ['限定詞'],
+                bgColor: '#ccadf6',
+                borderColor: 'darken'
+            }, {
+                type: 'PDT',
+                labels: ['限定詞'],
+                bgColor: '#ccadf6',
+                borderColor: 'darken'
+            }, {
+                type: 'WDT',
+                labels: ['wh-限定詞'],
+                bgColor: '#ccadf6',
+                borderColor: 'darken'
+            }, {
+                type: 'CD',
+                labels: ['数詞'],
+                bgColor: '#ccdaf6',
+                borderColor: 'darken'
+            }, {
+                type: 'NN',
+                labels: ['名詞'],
+                bgColor: '#a4bced',
+                borderColor: 'darken'
+            }, {
+                type: 'NNP',
+                labels: ['固有名詞(単数形)'],
+                bgColor: '#a4bced',
+                borderColor: 'darken'
+            }, {
+                type: 'NNPS',
+                labels: ['固有名詞(複数形)'],
+                bgColor: '#a4bced',
+                borderColor: 'darken'
+            }, {
+                type: 'NNS',
+                labels: ['名詞(複数形)'],
+                bgColor: '#a4bced',
+                borderColor: 'darken'
+            }, {
+                type: 'PRP',
+                labels: ['個人代名詞'],
+                bgColor: '#ccdaf6',
+                borderColor: 'darken'
+            }, {
+                type: 'PRP$',
+                labels: ['代名詞(所有格)'],
+                bgColor: '#ccdaf6',
+                borderColor: 'darken'
+            }, {
+                type: 'WP',
+                labels: ['wh-代名詞'],
+                bgColor: '#ccdaf6',
+                borderColor: 'darken'
+            }, {
+                type: 'WP$',
+                labels: ['wh-代名詞(所有格)'],
+                bgColor: '#ccdaf6',
+                borderColor: 'darken'
+            }, {
+                type: 'IN',
+                labels: ['前置詞'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }, {
+                type: 'TO',
+                labels: ['to'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }, {
+                type: 'MD',
+                labels: ['助動詞'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VB',
+                labels: ['動詞(基本形)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VBD',
+                labels: ['動詞(過去形)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VBG',
+                labels: ['動詞(ing形)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VBN',
+                labels: ['動詞(過去分詞形)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VBP',
+                labels: ['動詞(非三人称単数形)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'VBZ',
+                labels: ['動詞(三単現)'],
+                bgColor: '#adf6a2',
+                borderColor: 'darken'
+            }, {
+                type: 'EX',
+                labels: ['there'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'FW',
+                labels: ['外国語'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'LS',
+                labels: ['リストアイテムマーカー'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'POS',
+                labels: ['所有格'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'RP',
+                labels: ['パーティクル'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'SYM',
+                labels: ['シンボル'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'UH',
+                labels: ['感動詞'],
+                bgColor: '#e4cbf6',
+                borderColor: 'darken'
+            }, {
+                type: 'CC',
+                labels: ['等位接続詞'],
+                bgColor: 'yellow',
+                borderColor: 'darken'
+            }, {
+                type: 'that',
+                labels: ['従属接続詞'],
+                bgColor: '#ffe8be',
+                borderColor: 'darken'
+            }, {
+                type: '-LRB-',
+                labels: ['('],
+                bgColor: '#e3e3e3',
+                borderColor: 'darken'
+            }, {
+                type: '-RRB-',
+                labels: [')'],
+                bgColor: '#e3e3e3',
+                borderColor: 'darken'
+            }
+            ]
+        };
+        
+        collData4['relation_types'] = [{
+            type: 'Anaphora',
+            labels: ['修飾'],
+            // dashArray allows you to adjust the style of the relation arc
+            dashArray: '50,3',
+            color: 'purple',
+        }];
+    </script>
+    
+    <script type="text/javascript">
+    var docData4 = {
+        text     : "I like apples.",
+        entities : [
+                ['1', 'PRP', [[ 0, 1 ]]],
+                ['2', 'VBP', [[ 2, 6 ]]],
+                ['3', 'NNS', [[ 7, 13 ]]],
+        ],
+    };
+    docData4['relations'] = [
+    ]
+    </script>
+    
+    <p>This is the output of brat visualizer (please wait several seconds until all javascript libraries are loaded):</p>
+
+    <p><br>SVOCの可視化:</p>
+    <div id="embedding-entity-example1"></div>
+    <script type="text/javascript">
+        head.ready(function() {
+            Util.embed('embedding-entity-example1', $.extend({}, collData1),
+                    $.extend({}, docData1), webFontURLs);
+        });
+    </script>
+
+    <p><br>品詞の可視化:</p>
+    <div id="embedding-entity-example4"></div>
+    <script type="text/javascript">
+        head.ready(function() {
+            Util.embed('embedding-entity-example4', $.extend({}, collData4),
+                    $.extend({}, docData4), webFontURLs);
+        });
+    </script>
+
+    </body>
+    </html>
+    

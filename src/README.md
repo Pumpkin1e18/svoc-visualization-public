@@ -1,0 +1,11 @@
+## ディレクトリの解説
+- module：　pythonのモジュール  
+    - annotation_of_svoc.py：　SVOCのアノテーション  
+    - annotation_of_xpos.py：　品詞のアノテーション  
+    - output_of_html.py：　output.htmlの最後の方のソースコード  
+    - setting_of_html.py：　output.htmlの最初の方のソースコード  
+- output：　htmlの出力  
+    - css：　output.htmlの実行に必要  
+    - js：　output.htmlの実行に必要 
+    - output.html：　出力ファイル  
+- main.py：　メインファイル  
