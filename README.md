@@ -30,12 +30,16 @@
 
 ## 解析結果の例
 ### SV型
-<img src="img/SV.png" height="200">  
+<img src="img/SV.png" height="300">  
+
 ### SVC型
-<img src="img/SVC.png" height="200">  
+<img src="img/SVC.png" height="300">  
+
 ### SVO型
-<img src="img/SVO.png" height="200">  
+<img src="img/SVO.png" height="300">  
+
 ### SVOO型
-<img src="img/SVOO.png" height="200">  
+<img src="img/SVOO.png" height="300">  
+
 ### SVOC型
-<img src="img/SVOC.png" height="200">  
+<img src="img/SVOC.png" height="300">  
